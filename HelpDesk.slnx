@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/HelpDesk.Application/HelpDesk.Application.csproj" />
+    <Project Path="backend/HelpDesk.Domain/HelpDesk.Domain.csproj" />
+    <Project Path="backend/HelpDesk.Infrastructure/HelpDesk.Infrastructure.csproj" />
+  </Folder>
+</Solution>
