@@ -15,6 +15,9 @@ public class TicketController : ControllerBase
         _ticketService = ticketService;
     }
 
+    /// <summary>
+    /// Retorna todos os tickets registrados em banco.
+    /// </summary>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Ticket>>> GetAll()
     {
@@ -23,6 +26,9 @@ public class TicketController : ControllerBase
         return Ok(tickets);
     }
 
+    /// <summary>
+    /// Retorna um ticket pelo seu id.
+    /// </summary>
     [HttpGet("{id}")]
     public async Task<ActionResult<Ticket>> GetById(int id)
     {
@@ -34,6 +40,9 @@ public class TicketController : ControllerBase
         return Ok(ticket);
     }
 
+    /// <summary>
+    /// Cria um novo ticket.
+    /// </summary>
     [HttpPost]
     public async Task<IActionResult> Add(Ticket ticket)
     {
@@ -45,6 +54,9 @@ public class TicketController : ControllerBase
             ticket);
     }
 
+    /// <summary>
+    /// Atualiza um ticket existente.
+    /// </summary>
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, Ticket ticket)
     {
@@ -56,6 +68,9 @@ public class TicketController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Busca um ticket pelo seu id, e tenta exclui-lo.
+    /// </summary>
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
