@@ -4,12 +4,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HelpDesk.API.Controllers;
 
+
+/// <summary>
+/// Controlador responsável pelo gerenciamento de tickets. 
+/// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class TicketController : ControllerBase
 {
     private readonly ITicketService _ticketService;
-
+    /// <summary>
+    /// Inicializa uma nova instância do controlador de tickets.
+    /// </summary>
     public TicketController(ITicketService ticketService)
     {
         _ticketService = ticketService;
