@@ -1,4 +1,6 @@
-﻿using HelpDesk.Infrastructure.Data;
+﻿using HelpDesk.Application.Interfaces;
+using HelpDesk.Infrastructure.Data;
+using HelpDesk.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +17,8 @@ public static class DependencyInjection
             options.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection")
             ));
+
+        services.AddScoped<ITicketRepository, TicketRepository>();
 
         return services;
     }

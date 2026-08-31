@@ -1,32 +1,46 @@
 ﻿using HelpDesk.Application.Interfaces;
 using HelpDesk.Domain.Entities;
+using HelpDesk.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace HelpDesk.Infrastructure.Repositories;
 
 public class TicketRepository : ITicketRepository
 {
-    public Task<Ticket?> GetByIdAsync(int id)
+    private readonly HelpDeskDbContext _context;
+
+    public TicketRepository(HelpDeskDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public Task<IEnumerable<Ticket>> GetAllAsync()
+    public async Task<Ticket?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Tickets
+            .FirstOrDefaultAsync(t => t.Id == id);
     }
 
-    public Task AddAsync(Ticket ticket)
+    public async Task<IEnumerable<Ticket>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Tickets
+            .ToListAsync();
     }
 
-    public Task UpdateAsync(Ticket ticket)
+    public async Task AddAsync(Ticket ticket)
     {
-        throw new NotImplementedException();
+        await _context.Tickets.AddAsync(ticket);
+        await _context.SaveChangesAsync();
     }
 
-    public Task DeleteAsync(Ticket ticket)
+    public async Task UpdateAsync(Ticket ticket)
     {
-        throw new NotImplementedException();
+        _context.Tickets.Update(ticket);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(Ticket ticket)
+    {
+        _context.Tickets.Remove(ticket);
+        await _context.SaveChangesAsync();
     }
 }
