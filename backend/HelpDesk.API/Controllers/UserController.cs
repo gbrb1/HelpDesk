@@ -5,17 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace HelpDesk.API.Controllers;
 
 /// <summary>
-/// Controlador responsável pelo gerenciamento de usuários. 
+/// Controlador responsável pelo gerenciamento de usuários.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
 public class UserController : ControllerBase
 {
     private readonly IUserService _userService;
-
-    /// <summary>
-    /// Inicializa uma nova instância do controlador de usuários.
-    /// </summary>
     public UserController(IUserService userService)
     {
         _userService = userService;
@@ -35,6 +31,7 @@ public class UserController : ControllerBase
     /// <summary>
     /// Retorna um usuário pelo seu id.
     /// </summary>
+    /// <param name="id">Id do usuário que será consultado.</param>
     [HttpGet("{id}")]
     public async Task<ActionResult<User>> GetById(int id)
     {
@@ -49,6 +46,7 @@ public class UserController : ControllerBase
     /// <summary>
     /// Cria um novo usuário.
     /// </summary>
+    /// <param name="user">Dados do usuário que será criado.</param>
     [HttpPost]
     public async Task<IActionResult> Add(User user)
     {
@@ -63,6 +61,8 @@ public class UserController : ControllerBase
     /// <summary>
     /// Atualiza um usuário existente.
     /// </summary>
+    /// <param name="id">Id do usuário que será atualizado.</param>
+    /// <param name="user">Dados atualizados do usuário.</param>
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, User user)
     {
@@ -75,8 +75,9 @@ public class UserController : ControllerBase
     }
 
     /// <summary>
-    /// Busca um usuário pelo seu id e tenta exclui-lo.
+    /// Busca um usuário pelo seu id e tenta excluí-lo.
     /// </summary>
+    /// <param name="id">Id do usuário que será excluído.</param>
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
