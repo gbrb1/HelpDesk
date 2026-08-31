@@ -1,3 +1,54 @@
+## Progresso
+
+### v0.1.0 — Initial API
+
+Primeira versão funcional da API do HelpDesk, contemplando a estrutura inicial do backend e as operações básicas de tickets e usuários.
+
+#### Concluído
+
+- [x] Estrutura inicial do backend
+- [x] Implementação da Clean Architecture
+- [x] Camada `HelpDesk.Domain`
+  - [x] Entidade `Ticket`
+  - [x] Entidade `User`
+  - [x] Enums de domínio
+- [x] Camada `HelpDesk.Application`
+  - [x] Interfaces de repositórios
+  - [x] Services
+  - [x] Dependency Injection
+- [x] Camada `HelpDesk.Infrastructure`
+  - [x] Entity Framework Core
+  - [x] PostgreSQL
+  - [x] `HelpDeskDbContext`
+  - [x] Repositories
+  - [x] Configuração dos relacionamentos entre `Ticket` e `User`
+  - [x] Migrations
+- [x] Camada `HelpDesk.API`
+  - [x] Controllers
+  - [x] CRUD de Tickets
+  - [x] CRUD de Usuários
+  - [x] Dependency Injection
+  - [x] OpenAPI
+  - [x] Swagger
+  - [x] Documentação XML dos endpoints
+- [x] Configuração inicial de Git e branches
+- [x] Primeira release da API
+
+#### Próximos passos
+
+- [ ] Implementar DTOs
+- [ ] Implementar validações
+- [ ] Implementar autenticação
+- [ ] Implementar autorização e controle de permissões
+- [ ] Implementar tratamento global de exceções
+- [ ] Criar testes unitários
+- [ ] Criar testes de integração
+- [ ] Dockerizar a aplicação
+- [ ] Configurar CI/CD
+- [ ] Implementar sistema de notificações/mensageria
+- [ ] Desenvolver frontend
+
+
 # 🎫 HelpDesk
 
 > Sistema de gerenciamento de chamados desenvolvido para estudos de arquitetura de software, desenvolvimento de APIs e aplicações web modernas.
