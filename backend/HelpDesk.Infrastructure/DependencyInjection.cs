@@ -19,6 +19,7 @@ public static class DependencyInjection
             ));
 
         services.AddScoped<ITicketRepository, TicketRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
 
         return services;
     }
